@@ -1,0 +1,4 @@
+User-agent: * 
+Allow: /
+Sitemap:http://www.hbqfwh.com/sitemap.xml
+Sitemap:http://www.hbqfwh.com/sitemap.html

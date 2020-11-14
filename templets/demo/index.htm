@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="baidu-site-verification" content="iGjK04Bz3V" />
+  <meta name="chinaz-site-verification" content="90D112667FAE6240">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc,mobile">
+<meta name="author" content="order by M179 www.adminbuy.cn">
+<title>{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="description" content="{dede:global.cfg_description/}" />
+<link href="{dede:global.cfg_cmspath/}/skin/css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="{dede:global.cfg_cmspath/}/skin/css/mian.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="main">
+  <div class="wrap">
+    <div class="row">
+<!-- 轮播 --> 
+      <div class="banner">
+        <div class="swiper-container">
+          <div class="swiper-wrapper"> {dede:arclist row='5' titlelen='100' flag='f'}
+            <a class="swiper-slide" href="[field:arcurl/]" target="_blank" style="display:block; background:url([field:picname/]) no-repeat 0px 0px/100% 100%;">
+              <!--
+				  <a href="[field:arcurl/]" title="[field:title/]">
+					  <div class="title"><span>[field:title/]</span>
+						<h3 class="f20">[field:description function="cn_substr(@me,60)"/]...</h3>
+					  </div>
+				  </a> 
+-->
+			 </a>
+            {/dede:arclist} </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+<!-- 期刊发表 --> 
+      <div class="top-news">
+        <div class="top-news-box">
+          <h2>期刊发表</h2>
+          <div class="top-box">
+            <ul class="topnews">
+              {dede:arclist row='10' titlelen='100' flag='d' orderby='pubdate'}
+              <li><a href="[field:arcurl/]"><i class="iconfont icon-huoyan red"></i>[field:title/]</a></li>
+              {/dede:arclist}
+            </ul>
+          </div>
+        </div>
+                </div>
+              </div>
+            </div>
+<!-- 写作指导 --> 
+<div class="hotnews">
+  <div class="wrap">
+    <div class="row"> {dede:arclist row='6' titlelen='100' flag='i' orderby='pubdate'}
+      <div class="hotnewlist"> <a href="[field:arcurl/]" target="_blank">
+        <div class="hotdiv" style="background-image:url([field:picname/])">
+          <div class="overlay"></div>
+          <div class="title"><span>[field:typename/]</span>
+            <h3>[field:title/]</h3>
+          </div>
+        </div>
+        </a> </div>
+      {/dede:arclist} </div>
+  </div>
+</div>
+	</div>
+<div class="mainbody">
+  <div class="wrap">
+    <div class="row">
+      <div class="left">
+        <div class="article_box"> {dede:arclist row='50' titlelen='100' flag='z' orderby='pubdate'}
+          <div class="items">
+            <div class="content-box">
+              <div class="posts-gallery-img"><a href="[field:arcurl/]"><img class="thumbnail" src="[field:picname/]" alt="[field:title/]"></a> </div>
+              <div class="posts-gallery-content">
+                <h2><a href="[field:arcurl/]" target="_blank">[field:tag/][field:title/]</a></h2>
+                <div class="posts-gallery-text">[field:description function="cn_substr(@me,300)"/]...</div>
+                <div class="posts-default-info posts-gallery-info">
+                  <ul>
+                    <li class="ico-cat"><i class="iconfont icon-liebiao"></i> <a href="[field:arcurl/]" target="_blank">[field:shorttitle/]</a></li>
+                    <li class="ico-time"><i class="iconfont icon-iconfontshijian"></i> [field:pubdate function="MyDate('Y-m-d',@me)"/]</li>
+                    <li class="ico-eye"><i class="iconfont icon-yanjing1"></i> [field:click/]</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/dede:arclist} </div>
+      </div>
+      <!-- 右侧 --> 
+      {dede:include filename="right_index.htm"/} </div>
+  </div>
+</div>
+{dede:include filename="footer.htm"/}
+	<script src="/plus/timing_check.php" language="javascript"></script>
+	</body>
+</html>

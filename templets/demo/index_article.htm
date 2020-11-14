@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta name="applicable-device" content="pc,mobile">
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_cmspath/}/skin/css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="{dede:global.cfg_cmspath/}/skin/css/mian.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="subbody">
+  <div class="wrap">
+    <div class="row">
+      <div class="topad"><img src="{dede:global.cfg_cmspath/}/skin/images/ad.gif" width="1170" height="100"></div>
+      <div class="left">
+        <div class="left-ad"></div>
+        <div class="article-con">
+          <div class="postion">当前位置：{dede:field name='position'/} </div>
+          <div class="art-con">
+            <h1> {dede:field name='typename'/}</h1>
+            <div class="art-txt"> {dede:field.content/} </div>
+            <br/>
+            <div class="left-ad"></div>
+            <div class="shareBox">
+              <p><a href="javascript:;" class="sharebtn pay-author"><i class="iconfont icon-iconfontmoban"></i> 微信</a></p>
+                <div class="panel-reward">
+                  <ul>
+                    <li class="weixinpay"><img src="{dede:global.cfg_cmspath/}/skin/images/follow-weixin.jpg"><b>关注微信</b></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="pronext">
+              <div class="propage"><span></span></div>
+              <div class="nextpage"><span></span></div>
+            </div>
+          </div>
+        </div>
+       </div>
+      <!-- 右侧 -->
+      {dede:include filename="right.htm"/} </div>
+  </div>
+{dede:include filename="footer.htm"/} 
+<script> window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</body>
+</html>

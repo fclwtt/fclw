@@ -1,0 +1,29 @@
+<div class="topmenu" id="tophead">
+  <div class="wrap">
+    <div id="mobilemenu"></div>
+    <div class="mask"></div>
+    <div class="logo"><a href="{dede:global.cfg_cmspath/}/"><img src="{dede:global.cfg_cmspath/}/skin/images/logo.jpg" alt="{dede:global.cfg_webname/}" width="280" height="70"></a></div>
+    <div class="menu">
+      <ul id="nav">
+        <li class="closex"><i class="iconfont icon-guanbi"></i></li>
+        <li class="mainlevel"><a {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='hover'":@me="";{/dede:field}href="{dede:global.cfg_cmspath/}/">网站首页</a></li>
+        {dede:channel type='top' currentstyle="
+        <li class='mainlevel'><a href='~typelink~' class='hover'>~typename~</a></li>
+        "}
+        <li class="mainlevel"><a href="[field:typeurl/]">[field:typename/]</a></li>
+        {/dede:channel}
+        <div class="clear"></div>
+      </ul>
+    </div>
+    <div class="search"><i class="iconfont icon-sousuo"></i></div>
+  </div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?89704c356d9bf7ab8578fa6e000d0b83";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>

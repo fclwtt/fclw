@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>定时审核时间管理</title>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">   
+  <!--  
+  function getselect(selectid,selectvalue){
+      var  myid   =   document.getElementById(selectid); 
+	  var intoptions=myid.options.length;
+	  for(var i = 0; i < intoptions; i++) {  
+	    if(myid.options[i].value == selectvalue) {        
+            myid.options[i].selected = true;    
+			//alert("dd");                 
+         }    
+	    }
+	  }
+ 
+  //-->   
+  </script> 
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+  
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6" style="margin-bottom:6px;">
+<script>getselect("typeid_3","5"); </script>
+  <tr>
+   <td height="28" background="images/tbg.gif" colspan="7">
+     <b>定时更新管理</b>
+	</td>
+</tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="1" cellspacing="1" bordercolor="#CCCCCC" bgcolor="#D6D6D6" class="tbtitle" >
+  <form name="form1" action="times_man.php" method="post">
+    <input type="hidden" name="dopost" value="save">
+    <tr>
+      <td height="28" colspan="7" bgcolor="#EDF9D5" background="images/wbg.gif" > &nbsp;<strong>说明:当审核数量设置为0时是全站更新（建议时间设置在1点-5点之间） </strong></td>
+    </tr>
+    <tr bgcolor="#FDFEE9">
+      <td width="10%" height="24" align="center" valign="top">开始时间</td>
+      <td width="10%" align="center" valign="top">结束时间</td>
+      <td width="10%" align="center">审核数量</td>
+      <td width="20%" align="center">按照栏目或者总数更新</td>
+      <td width="20%" align="center">选择更新的栏目</td>
+      <td width="20%" align="center">每次最大创建页数</td>
+      <td width="15%" align="center">状态</td>
+    </tr>
+    <?php
+	$typeOptions = GetOptionList($row2->typeid,$cuserLogin->getUserChannel(),0);
+    //$dsql = new DedeSql(false);
+    $dsql->SetQuery("Select * From #@__check_time order by typeid,start_time");
+	$dsql->Execute();
+	$k=0;
+	
+	while($row2 = $dsql->GetObject())
+	{
+      $k++;
+	?>
+    <input type="hidden" name="ID_<?php echo $k?>" value="<?php echo $row2->id?>">
+    <tr align="center" bgcolor="#FFFFFF">
+      <td>
+      	<input name="stime_<?php echo $k?>" value="<?php echo $row2->start_time?>" type="text" id="stime_<?php echo $k?>"  style="width:60%" />
+        (时)
+      </td>
+      <td>
+      	<input name="etime_<?php echo $k?>" value="<?php echo $row2->end_time?>" type="text" id="etime_<?php echo $k?>" class='pubinputs' style="width:60%" />
+       (时)
+      </td>
+      <td>
+	  <?php 
+	    if($row2->amount)
+		 $amount=$row2->amount;
+		else 
+		 $amount="全站";
+	  ?>
+      	<input name="amount_<?php echo $k?>" value="<?php echo $amount?>" type="text" id="amount_<?php echo $k?>" class='pubinputs' style="width:40px" />
+       (篇)
+      </td>
+       <td>
+      	  <input name="lmorzs_<?php echo $k?>" type="radio" class="np" value="0" <?php if($row2->lmorzs==0) echo "checked='1'"?>/>
+          按照栏目
+          <input type="radio" name="lmorzs_<?php echo $k?>" value="1" class="np" <?php if($row2->lmorzs==1) echo "checked='1'"?>/>
+          按照总数
+	   </td>
+       <td>
+	 
+       <?php        
+          echo "<select id='typeid_$k' name='typeid_$k' style='width:100px' onload='SelectItem(this,'1')'>\r\n";
+          echo "<option value='0'>所有栏目</option>\r\n";
+          echo $typeOptions;
+          echo "</select>";
+	   ?>
+  <script language="JavaScript">   
+  <!--  
+   getselect("typeid_<?php echo $k?>","<?php echo $row2->typeid?>"); 
+  //-->   
+  </script> 
+	   </td>
+	  
+       <td>
+      	<input name="maxpagesize_<?php echo $k?>" value="<?php echo $row2->maxpagesize?>" type="text" id="maxpagesize_<?php echo $k?>" class='pubinputs' style="width:60%" />
+       个文件
+	   </td>
+      <td>
+	  <input name="check_<?php echo $k?>" type="checkbox" id="check_<?php echo $k?>"  value="1" checked='1' class='np' />
+        保留
+      </td>
+    </tr>
+    <?php
+	}
+	?>
+    <input type="hidden" name="idend" value="<?php echo $k?>">
+    <tr>
+      <td height="24" colspan="7" valign="top" background="images/wbg.gif" ><strong>新增一个时间段：（时间范围为：0-24）</strong></td>
+    </tr>
+    <tr height="24" align="center" bgcolor="#FFFFFF">
+      <td valign="top">
+      	<input name="stime_new" type="text" id="stime_new" class='pubinputs' style="width:60%" />
+        (时)
+      </td>
+      <td valign="top">
+      	<input name="etime_new" value="" type="text" id="etime_new" class='pubinputs' style="width:60%" />
+        (时)
+      </td>
+      <td valign="top">
+      	<input name="amount_new" type="text" id="amount_new" class='pubinputs' style='width:40px' value="0" />
+        (篇)
+      </td>
+       <td>
+      	  <input name="lmorzs_new" type="radio" class="np" value="0" checked='1' />
+          按照栏目
+          <input type="radio" name="lmorzs_new" value="1" class="np"/>
+          按照总数
+	   </td>
+      <td>
+       <?php
+          $typeOptions2 = GetOptionList(0,$cuserLogin->getUserChannel(),0);
+          echo "<select name='typeid_new' id='typeid_new' style='width:180px'>\r\n";
+          echo "<option value='0'>所有栏目</option>\r\n";
+          echo $typeOptions2;
+          echo "</select>";
+	    ?>
+      </td>
+       <td>
+      	<input name="maxpagesize_new" value="50" type="text" id="maxpagesize_new" class='pubinputs' style="width:60%" />
+       个文件
+	   </td>
+      <td align="center" bgcolor="#FFFFFF">
+	  <input name="check_new" type="checkbox"  id="check_new" value="1" checked='1' class='np' />
+        新增 </td>
+    </tr>
+    <tr>
+      <td height="34" colspan="7" align="center" bgcolor="#F8FCF1">
+      	<input name="imageField"  type="submit" class="np coolbg" value="确定" />
+      </td>
+    </tr>
+  </form>
+</table>
+</body>
+</html>

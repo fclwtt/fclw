@@ -1,0 +1,34 @@
+<div class="footer">
+  <div class="wrap">
+    <div class="nav-footer"> <a href="{dede:global.cfg_cmspath/}/">网站首页</a> {dede:channel type='top' currentstyle="<a href='~typelink~' class='thisclass'>~typename~</a>"} <a href="[field:typeurl/]">[field:typename/]</a> {/dede:channel}{dede:type typeid='33'} <a href="[field:typelink/]">[field:typename/]</a>{/dede:type} </div>
+    <div class="copyright-footer">
+      <p>{dede:global.cfg_powerby/} <a href="http://beian.miit.gov.cn" target="_blank">{dede:global.cfg_beian/}</a> <a href="/sitemap.xml" target="_blank">XML地图</a></p>
+    </div>
+    <div class="links-footer"> <span>友情链接：</span> {dede:flink titlelen='20' row='20' type='text'}  [field:link /]  {/dede:flink} </div>
+  </div>
+</div>
+<!-- 返回顶部按钮-->
+<div class="backtop" id="backtop"><i class="iconfont icon-xiangshang"></i></div>
+<!-- 搜索框-->
+<div class="search-box">
+  <div class="search-close"><i class="iconfont icon-guanbi"></i></div>
+  <div class="search-con">
+    <dl class="se">
+      <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <input type="hidden" name="kwtype" value="1" />
+        <dt>
+          <input name="q" type="text" class="search-keyword" id="search-keyword" value="输入搜索关键词" onfocus="if(this.value=='输入搜索关键词'){this.value='';}"  onblur="if(this.value==''){this.value='输入搜索关键词';}" />
+        </dt>
+        <dd>
+          <button type="submit"><i class="iconfont icon-sousuo"></i></button>
+        </dd>
+      </form>
+    </dl>
+    <div class="search-tips">大家都在搜</div>
+    <div class="search-as"> {dede:hotwords num='20'/} </div>
+  </div>
+</div>
+<script type="text/javascript" src="{dede:global.cfg_cmspath/}/skin/js/jquery.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_cmspath/}/skin/js/swiper.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_cmspath/}/skin/js/slide.js"></script>
+<script>(function() {var _53code = document.createElement("script");_53code.src = "https://tb.53kf.com/code/code/40c52cdee95065639d3fe57973b70c370/1";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(_53code, s);})();</script>

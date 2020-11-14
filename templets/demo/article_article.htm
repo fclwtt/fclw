@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc,mobile">
+<title>{dede:field.title/}_{dede:field.shorttitle/}范文下载_飞创论文</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_cmspath/}/skin/css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="{dede:global.cfg_cmspath/}/skin/css/mian.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{dede:include filename="head.htm"/}
+
+<div class="subbody">
+  <div class="wrap">
+    <div class="row">
+      <div class="left">
+        <div class="article-con">
+          <div class="postion">当前位置：{dede:field name='position'/} </div>
+          <div class="art-con">
+            <h1>{dede:field.title/}</h1>
+            <div class="posts-default-info">
+              <ul>
+                <li class="post-author">
+                  <div class="avatar"><img src="{dede:global.cfg_cmspath/}/skin/images/wordlm.jpg" height="96" width="96"></div>
+                </li>
+                <li class="ico-cat"><i class="iconfont icon-liebiao"></i> {dede:type} <a href="[field:typelink/]">[field:typename/]</a>{/dede:type} </li>
+                <li class="ico-time"><i class="iconfont icon-iconfontshijian"></i> {dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</li>
+                <li class="ico-eye"><i class="iconfont icon-yanjing1"></i> <script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></li>
+              </ul>
+            </div>
+            <div class="search-input" style="height: 42px;border: 1px solid orange;margin-top: 10px;line-height: 42px;color: #999;border-radius: 4px;box-sizing: border-box;padding: 0 20px;cursor: pointer;">
+              请输入要搜索关键词
+              <i class="iconfont icon-sousuo" style="float: right;color: black;"></i>
+            </div>
+            <div class="art-txt"> {dede:field.body/} </div>
+            <div class="shareBox">
+              <p><a href="javascript:;" class="sharebtn pay-author"><i class="iconfont icon-iconfontmoban"></i> 未找到对口论文？点我人工服务</a> </p>
+              <div class="socialBox">
+                <div class="panel-reward">
+                  <ul>
+                    <li class="weixinpay"><img src="{dede:global.cfg_cmspath/}/skin/images/follow-weixin.jpg"><b>添加微信，提供课题关键词，帮你找</b></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="pronext">
+              <div class="propage"><span>{dede:prenext get='pre'/} </span></div>
+              <div class="nextpage"><span>{dede:prenext get='next'/} </span></div>
+            </div>
+          </div>
+        </div>
+        <div class="article-con">
+          <h3 class="subtitle"><span>猜你喜欢</span></h3>
+          <ul class="sub-news">
+            {dede:arclist row='10' titlelen='50' orderby='pubdate'}
+            <li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+            {/dede:arclist}
+          </ul>
+        </div>
+      </div>
+      <!-- 右侧 --> 
+     {dede:include filename="right.htm"/} </div>
+  </div>
+</div>
+{dede:include filename="footer.htm"/} 
+</body>
+</html>

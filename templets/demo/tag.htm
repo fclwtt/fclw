@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc,mobile">
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_cmspath/}/skin/css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="{dede:global.cfg_cmspath/}/skin/css/mian.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="subbody">
+  <div class="wrap">
+    <div class="row">
+      <div class="left">
+        <div class="article-con">
+          <div class="postion">当前位置：<a href="/">首页</a> > TAG</div>
+          <div class="art-con">
+            <h1>TAG聚合</h1>
+            <div class="art-txt">
+              <div class="tags">
+                <div class="tags-title">
+                  <h2>热门标签</h2>
+                </div>
+                <ul>
+                  {dede:tag row='200' sort='month'}
+                  <li><a href='[field:link/]'>[field:tag/]</a></li>
+                  {/dede:tag}
+                </ul>
+              </div>
+              <!-- tags end-->
+              <div class="tags">
+                <div class="tags-title">
+                  <h2>最新标签</h2>
+                </div>
+                <ul>
+                  {dede:tag row='200' sort='new'}
+                  <li><a href='[field:link/]'>[field:tag/]</a></li>
+                  {/dede:tag}
+                </ul>
+              </div>
+              <!-- tags end-->
+              <div class="tags">
+                <div class="tags-title">
+                  <h2>随机标签</h2>
+                </div>
+                <ul>
+                  {dede:tag row='200' sort='rand'}
+                  <li><a href='[field:link/]'>[field:tag/]</a></li>
+                  {/dede:tag}
+                </ul>
+              </div>
+              <!-- tags end--> 
+            </div>
+          </div>
+        </div>
+        <div class="article-con">
+          <h3 class="subtitle"><span>猜你喜欢</span></h3>
+          <ul class="sub-news">
+            {dede:arclist row='10' titlelen='50' orderby='pubdate'}
+            <li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+            {/dede:arclist}
+          </ul>
+        </div>
+      </div>
+      <!-- 右侧 --> 
+      {dede:include filename="right.htm"/} </div>
+  </div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>
